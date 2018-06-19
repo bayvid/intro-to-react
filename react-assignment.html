@@ -7,24 +7,33 @@
 
   <body>
       <div id="button"></div>
+
        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
        <script type="text/babel">
        class PickNumber extends React.Component {
+         constructor(props){
+             super(props);
+             this.state = {
+                 status: "This is the state"
+             }
+         }
+
          render () {
            return (
              <div>
                 <button>
-                    <h1>Click Me!</h1>
+                    <h1>{this.props.name}!</h1>
                 </button>
+            <h2>{this.state.status}</h2>
             </div>
            );
          }
        }
 
        ReactDOM.render(
-           <PickNumber />, document.getElementById("button")
+           <PickNumber name={"Click Me"}/>, document.getElementById("button")
    );
      </script>
   </body>
